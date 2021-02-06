@@ -77,7 +77,7 @@ export async function notify (name: string, url: string, status: Status): Promis
     body.cards[0].sections[1].widgets.push({
       keyValue: {
         topLabel: 'Commit Msg',
-        content: commitMessage
+        content: `${commitMessage.author.name}: "${commitMessage.message}"`
       }
     });
   }

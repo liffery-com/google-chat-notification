@@ -2333,7 +2333,7 @@ function notify(name, url, status) {
             body.cards[0].sections[1].widgets.push({
                 keyValue: {
                     topLabel: 'Commit Msg',
-                    content: commitMessage
+                    content: `${commitMessage.author.name}: "${commitMessage.message}"`
                 }
             });
         }
