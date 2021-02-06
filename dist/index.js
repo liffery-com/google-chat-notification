@@ -1001,6 +1001,7 @@ function run() {
             console.info('Sent message.');
         }
         catch (error) {
+            console.log(error);
             core.setFailed(error.message);
         }
     });

@@ -1,5 +1,8 @@
+# THIS REPO CLONE FROM https://github.com/Co-qn/google-chat-notification
+
+The modification is to send the commit message in the post body
+
 # Google Chat Notification for GitHub Actions
-![](https://github.com/Co-qn/google-chat-notification/workflows/Build/badge.svg)
 
 Sends a Google Chat notification.
 
