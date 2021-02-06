@@ -2299,7 +2299,7 @@ function notify(name, url, status) {
                             widgets: [
                                 {
                                     keyValue: {
-                                        topLabel: 'repository',
+                                        topLabel: 'Repository',
                                         content: `${owner}/${repo}`,
                                         contentMultiline: true,
                                         button: textButton('OPEN REPOSITORY', repoUrl)
@@ -2307,22 +2307,17 @@ function notify(name, url, status) {
                                 },
                                 {
                                     keyValue: {
-                                        topLabel: 'event name',
-                                        content: eventName,
+                                        topLabel: 'Ref & Event Name',
+                                        content: `${ref} - ${eventName}`,
+                                        contentMultiline: true,
                                         button: textButton('OPEN EVENT', eventUrl)
-                                    }
-                                },
-                                {
-                                    keyValue: {
-                                        topLabel: 'ref',
-                                        content: ref
                                     }
                                 }
                             ]
                         },
                         {
                             widgets: [{
-                                    buttons: [textButton('OPEN CHECKS', checksUrl)]
+                                    buttons: [textButton('OPEN ACTION', checksUrl)]
                                 }]
                         }
                     ]
@@ -2332,8 +2327,15 @@ function notify(name, url, status) {
         if (commitMessage) {
             body.cards[0].sections[1].widgets.push({
                 keyValue: {
+                    topLabel: 'Author',
+                    content: commitMessage.author.name
+                }
+            });
+            body.cards[0].sections[1].widgets.push({
+                keyValue: {
                     topLabel: 'Commit Msg',
-                    content: `${commitMessage.author.name}: "${commitMessage.message}"`
+                    content: commitMessage.message,
+                    contentMultiline: true,
                 }
             });
         }
