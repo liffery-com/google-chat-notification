@@ -81,7 +81,12 @@ export async function notify (name: string, url: string, status: Status): Promis
       }
     });
   }
-  const response = await axios.default.post(url, body);
+  let response;
+  try {
+    response = await axios.default.post(url, body);
+  } catch (e) {
+    throw new Error(e.data.error);
+  }
   if (response.status !== 200) {
     throw new Error(`Google Chat notification failed. response status=${response.status}`);
   }
